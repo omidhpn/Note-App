@@ -29,24 +29,28 @@ function createNote () {
         mainDiv.append(divElem);
         inputElem.value = '';
 
-        divElem.addEventListener('click', function () {
-            divElem.remove();
-        });
     }
 }
 
+mainDiv.addEventListener ('click', function (event) {
 
+    if (event.target.tagName === 'P') {
+        event.target.parentElement.remove ()
+    }
+    
+})
 
-inputElem.addEventListener ('keydown', function (event) {
+window.addEventListener ('keydown', function (event) {
+
     if (event.keyCode === 13) {
         createNote()
     }
+
 })
 
 
 
 addBtn.addEventListener ('click', createNote)
-
 
 
 deleteBtn.addEventListener ('click', function () {
